@@ -7,7 +7,9 @@
 <body>
 <h1>Listado de Mascotas Registradas</h1>
 
-<table border="1">
+<a th:href="@{/mascota/nueva}" class="btn-nuevo">Nueva Mascota</a>
+
+<table>
     <thead>
     <tr>
         <th>Nombre</th>
@@ -16,6 +18,7 @@
         <th>Edad</th>
         <th>Peso</th>
         <th>DNI Propietario</th>
+        <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -26,6 +29,12 @@
         <td th:text="${mascota.edad}"></td>
         <td th:text="${mascota.peso}"></td>
         <td th:text="${mascota.dni}"></td>
+        <td>
+            <a th:href="@{/mascota/editar/{id}(id=${mascota.id})}" class="btn-editar">Editar</a>
+            <form th:action="@{/mascota/eliminar/{id}(id=${mascota.id})}" method="post">
+                <button type="submit" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar esta mascota?')">Eliminar</button>
+            </form>
+        </td>
     </tr>
     </tbody>
 </table>

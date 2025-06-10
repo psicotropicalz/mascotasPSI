@@ -1,41 +1,42 @@
 package com.ceatformacion.mascotaspsi.controller;
 
 import com.ceatformacion.mascotaspsi.model.Mascota;
-import com.ceatformacion.mascotaspsi.service.MascotaService;
+import com.ceatformacion.mascotaspsi.repository.MascotaRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 @Controller
+@RequestMapping("/mascota")
 public class ControllerMascota {
 
-    private final MascotaService mascotaService;
-
-    public ControllerMascota(MascotaService mascotaService) {
-        this.mascotaService = mascotaService;
-    }
-
-    @GetMapping("/")
-    public String index() {
-        return "index";
-    }
+    @Autowired
+    private MascotaRepository mascotaRepository;
 
     @GetMapping("/nueva")
-    public String formularioMascota(Model model) {
+    public String mostrarFormularioNuevo(Model model) {
         model.addAttribute("mascota", new Mascota());
-        return "nueva_mascota";
+        return "formulario_mascota";  // Cambiado a nueva_mascota.html
     }
 
     @PostMapping("/guardar")
     public String guardarMascota(@ModelAttribute Mascota mascota) {
-        mascotaService.guardarMascota(mascota);
-        return "registro_exitoso"; // Ya no redirige al index, sino a una vista
+        mascotaRepository.save(mascota);
+        return "redirect:/mascotas";
     }
 
-    @GetMapping("/lista")
-    public String listarMascotas(Model model) {
-        model.addAttribute("mascotas", mascotaService.listarMascotas());
-        return "lista_mascotas";
+    @GetMapping("/editar/{id}")
+    public String mostrarFormularioEditar(@PathVariable Integer id, Model model) {
+        Mascota mascota = mascotaRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("ID de mascota inválido: " + id));
+        model.addAttribute("mascota", mascota);
+        return "formulario_mascota";  // Cambiado a nueva_mascota.html
     }
 
+    @PostMapping("/eliminar/{id}")
+    public String eliminarMascota(@PathVariable Integer id) {
+        mascotaRepository.deleteById(id);
+        return "redirect:/mascotas";
+    }
 }
