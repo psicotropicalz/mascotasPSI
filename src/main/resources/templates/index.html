@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Inicio - Clínica Veterinaria</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+<body>
+<h1>Bienvenido a la Clínica Veterinaria</h1>
+<p>Gestiona el registro de mascotas de forma sencilla.</p>
+
+<nav>
+    <ul>
+        <li><a th:href="@{/nueva}">Registrar Nueva Mascota</a></li>
+        <li><a th:href="@{/lista}">Ver Lista de Mascotas</a></li>
+    </ul>
+</nav>
+
+<footer>
+    <p>&copy; 2025 Clínica Veterinaria. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
