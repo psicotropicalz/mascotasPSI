@@ -31,7 +31,7 @@
         <td th:text="${mascota.dni}"></td>
         <td>
             <a th:href="@{/mascota/editar/{id}(id=${mascota.id})}" class="btn-editar">Editar</a>
-            <form th:action="@{/mascota/eliminar/{id}(id=${mascota.id})}" method="post">
+            <form th:action="@{/mascota/eliminar/{id}(id=${mascota.id})}" method="post" class="form-eliminar">
                 <button type="submit" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar esta mascota?')">Eliminar</button>
             </form>
         </td>
