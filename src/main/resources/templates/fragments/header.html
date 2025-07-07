@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <header th:fragment="header">
+        <nav class="navbar">
+            <div class="nav-container">
+                <a th:href="@{/}" class="nav-logo">Mascotas PSI</a>
+                <div class="nav-links">
+                    <a th:href="@{/}" class="nav-link">Inicio</a>
+                    <a th:href="@{/mascotas}" class="nav-link">Mascotas</a>
+                    <a th:if="${session.username == null}" th:href="@{/login}" class="nav-link">Iniciar Sesión</a>
+                    <a th:if="${session.username == null}" th:href="@{/registro}" class="nav-link">Registrarse</a>
+                    <a th:if="${session.username != null}" th:href="@{/logout}" class="nav-link">Cerrar Sesión</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+</body>
+</html>

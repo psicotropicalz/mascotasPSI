@@ -24,7 +24,7 @@ h1, h2 {
     margin-bottom: 2rem;
 }
 
-/* NavegaciÃ³n */
+/* NavegaciÃƒÆ’Ã‚Â³n */
 nav {
     width: 100%;
     max-width: 600px;
@@ -41,16 +41,11 @@ nav ul {
 nav a {
     text-decoration: none;
     color: #3498db;
-    padding: 0.8rem 1.5rem;
+    padding: 0.8rem 1rem;
     border-radius: 5px;
     transition: all 0.3s ease;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-nav a:hover {
-    background-color: #3498db;
-    color: white;
 }
 
 /* Formulario */
@@ -85,7 +80,7 @@ input {
 }
 
 button {
-    background-color: #2ecc71;
+    background-color: #cc2e2e;
     color: white;
     padding: 1rem 2rem;
     border: none;
@@ -99,6 +94,22 @@ button {
 
 button:hover {
     background-color: #27ae60;
+}
+
+nav.navbar {
+    margin: auto;
+}
+
+header {
+    width: 100%;
+}
+
+a.nav-logo {
+    color: #000;
+}
+
+a.nav-link {
+    color: #000;
 }
 
 /* Estilos de la tabla */
@@ -130,7 +141,7 @@ tbody tr {
 }
 
 tbody tr:hover {
-    background-color: #2c3e50;
+    background-color: #1d29367a;
     color: white;
     transform: scale(1.01);
 }
@@ -210,4 +221,154 @@ input[type="text"],
 input[type="number"] {
     padding: 5px;
     width: 200px;
+}
+
+/* Estilos login */
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 2rem auto;
+}
+
+.login-form {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-form h2 {
+    margin-bottom: 1.5rem;
+    color: #2c3e50;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+.btn-login {
+    background-color: #3498db;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.btn-login:hover {
+    background-color: #2980b9;
+    color: #fff;
+}
+
+.form-footer {
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.form-footer a {
+    color: #3498db;
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.form-footer a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos para la barra de navegaciÃ³n */
+.navbar {
+    padding: 1rem;
+    color: white;
+}
+a.nav-link:hover {
+    color: #fff;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.nav-brand {
+    font-size: 1.5rem;
+}
+
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+}
+
+.nav-link:hover {
+    background-color: #444;
+    border-radius: 4px;
+}
+
+.nav-user {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.btn-logout {
+    background-color: #dc3545;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    text-decoration: none;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}
+
+form.btn-delete {
+    padding: 0;
+}
+
+button.btn-delete {
+    margin-bottom: 0;
+}
+
+a.btn-edit {
+    width: 100%;
+    display: block;
+    text-align: center;
+    padding: 14px;
+    background: #3498db;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+a.btn-nuevo:hover {
+    color: #000;
 }

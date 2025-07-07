@@ -5,11 +5,13 @@
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:replace="~{fragments/header :: header}"></div>
 <h1>Bienvenido a la Clínica Veterinaria</h1>
 <p>Gestiona el registro de mascotas de forma sencilla.</p>
 
 <nav>
     <ul>
+        <li><a th:href="@{/login}">Iniciar sesión</a></li>
         <li><a th:href="@{/mascota/nueva}">Registrar Nueva Mascota</a></li>
         <li><a th:href="@{/mascotas}">Ver Lista de Mascotas</a></li>
     </ul>

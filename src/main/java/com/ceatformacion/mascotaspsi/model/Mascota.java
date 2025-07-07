@@ -14,7 +14,6 @@ public class Mascota {
     private String raza;
     private int edad;
     private double peso;
-
     private String dni;
 
     // Getters y setters
@@ -39,4 +38,13 @@ public class Mascota {
 
     public String getDni() { return dni; }
     public void setDni(String dni) { this.dni = dni; }
+    // ... otros campos existentes ...
+
+    @ManyToOne
+    @JoinColumn(name = "usuario_id")
+    private Usuario usuario;
+
+    // Añadir getter y setter para usuario
+    public Usuario getUsuario() { return usuario; }
+    public void setUsuario(Usuario usuario) { this.usuario = usuario; }
 }

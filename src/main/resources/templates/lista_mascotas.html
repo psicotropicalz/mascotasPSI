@@ -1,13 +1,25 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista de Mascotas</title>
     <link rel="stylesheet" th:href="@{/css/style.css}">
 </head>
 <body>
+<div th:replace="~{fragments/header :: header}"></div>
+
 <h1>Listado de Mascotas Registradas</h1>
 
 <a th:href="@{/mascota/nueva}" class="btn-nuevo">Nueva Mascota</a>
+<a th:href="@{/pdf}" class="btn-nuevo" target="_blank">Generar PDF</a>
+<div class="input-group">
+    <form th:action="@{/buscar}" method="get">
+    <div class="form-outline" data-mdb-input-init>
+        <input type="text" id="form1" class="form-control" name="nombre" />
+        <button type="submit" class="btn btn-primary" data-mdb-ripple-init>Buscar</button>
+    </div>
+
+    </form>
+</div>
 
 <table>
     <thead>
@@ -29,12 +41,12 @@
         <td th:text="${mascota.edad}"></td>
         <td th:text="${mascota.peso}"></td>
         <td th:text="${mascota.dni}"></td>
-        <td>
-            <a th:href="@{/mascota/editar/{id}(id=${mascota.id})}" class="btn-editar">Editar</a>
-            <form th:action="@{/mascota/eliminar/{id}(id=${mascota.id})}" method="post" class="form-eliminar">
-                <button type="submit" class="btn-eliminar" onclick="return confirm('¿Estás seguro de eliminar esta mascota?')">Eliminar</button>
-            </form>
-        </td>
+       <td th:if="${esAdmin}">
+           <a th:href="@{/mascota/editar/{id}(id=${mascota.id})}" class="btn-edit">Editar</a>
+           <form th:action="@{/mascota/eliminar/{id}(id=${mascota.id})}" method="post" class="btn-delete">
+               <button type="submit" class="btn-delete">Eliminar</button>
+           </form>
+       </td>
     </tr>
     </tbody>
 </table>
